@@ -80,11 +80,12 @@ public class TestCases {
 
     }
 
+    //@SuppressWarnings("deprecation")
     @Test(enabled = true, alwaysRun = true)
     public static void testCase02() throws InterruptedException{
 
         System.out.println("Start the testCase02");
-       // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver.findElement(By.xpath("//input[@title ='Search for Products, Brands and More']"));
@@ -160,11 +161,12 @@ public class TestCases {
             return reviews;
         }
     }
+    //@SuppressWarnings("deprecation")
     @Test(enabled = true, alwaysRun = true)
     public static void testCase03() throws InterruptedException {
 
         System.out.println("Start the testCase03");
-
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver
