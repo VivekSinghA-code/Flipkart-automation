@@ -18,7 +18,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 
@@ -33,11 +32,10 @@ public class TestCases {
      * Follow `testCase01` `testCase02`... format or what is provided in instructions
      */
 
-     @SuppressWarnings("deprecation")
-    @Test(alwaysRun = true,enabled = true)
+     @Test(alwaysRun = true,enabled = true)
      public static void testCase01() throws InterruptedException{
         System.out.println("Start the testcase01");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver.findElement(By.xpath("//input[@title ='Search for Products, Brands and More']"));
@@ -81,12 +79,11 @@ public class TestCases {
 
     }
 
-    @SuppressWarnings("deprecation")
     @Test(enabled = true, alwaysRun = true)
     public static void testCase02() throws InterruptedException{
 
         System.out.println("Start the testCase02");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+       // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver.findElement(By.xpath("//input[@title ='Search for Products, Brands and More']"));
@@ -254,8 +251,8 @@ public class TestCases {
         System.setProperty("java.util.logging.config.file", "logging.properties");
 
         // NOT NEEDED FOR SELENIUM MANAGER
-        // WebDriverManager.chromedriver().timeout(30).setup();
-
+        //WebDriverManager.chromedriver().timeout(30).setup();
+       // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         ChromeOptions options = new ChromeOptions();
         LoggingPreferences logs = new LoggingPreferences();
 
@@ -269,6 +266,7 @@ public class TestCases {
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
+       
     }
 
     @AfterTest(alwaysRun = true,enabled = true)
