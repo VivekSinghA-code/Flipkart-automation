@@ -41,14 +41,17 @@ public class TestCases {
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver.findElement(By.xpath("//input[@title ='Search for Products, Brands and More']"));
-        searchElement.sendKeys("Washing Machine");
+        Wrappers.wrapperSendKeys(searchElement,"Washing Machine");
+        //searchElement.sendKeys("Washing Machine");
         Thread.sleep(5000);
         
         Actions action = new Actions(driver);
         action.sendKeys(searchElement, Keys.ENTER).perform();
 
         WebElement popularityElement = driver.findElement(By.xpath("//div[text() ='Popularity']")); ////div[@class='sHCOk2']//div[2]
-        popularityElement.click();
+        
+        Wrappers.wrapperClick(driver, popularityElement);
+        //popularityElement.click();
         Thread.sleep(3000);
 
         List<WebElement> ratingElements = driver.findElements(By.xpath("//div[@class ='XQDdHH']"));
@@ -87,7 +90,8 @@ public class TestCases {
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver.findElement(By.xpath("//input[@title ='Search for Products, Brands and More']"));
-        searchElement.sendKeys("iPhone");
+        Wrappers.wrapperSendKeys(searchElement, "iPhone");
+        //searchElement.sendKeys("iPhone");
         Thread.sleep(5000);
         
         Actions action = new Actions(driver);
@@ -177,7 +181,8 @@ public class TestCases {
         WebElement fourStarcheckboxElement = driver
                 .findElement(By.xpath("(//div[@class='XqNaEv'])[1]"));
 
-        fourStarcheckboxElement.click();
+                Wrappers.wrapperClick(driver, fourStarcheckboxElement);
+        //fourStarcheckboxElement.click();
 
         Thread.sleep(3000);
 
