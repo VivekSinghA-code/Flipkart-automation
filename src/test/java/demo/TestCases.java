@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 
@@ -31,11 +32,11 @@ public class TestCases {
      * TODO: Write your tests here with testng @Test annotation. 
      * Follow `testCase01` `testCase02`... format or what is provided in instructions
      */
-
-     @Test(alwaysRun = true,enabled = true)
+    @SuppressWarnings("deprecation")
+    @Test(alwaysRun = true,enabled = true)
      public static void testCase01() throws InterruptedException{
         System.out.println("Start the testcase01");
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.flipkart.com");
 
         WebElement searchElement = driver.findElement(By.xpath("//input[@title ='Search for Products, Brands and More']"));
@@ -245,27 +246,37 @@ public class TestCases {
     /*
      * Do not change the provided methods unless necessary, they will help in automation and assessment
      */
+    //@SuppressWarnings("deprecation")
     @BeforeTest(alwaysRun = true,enabled = true)
     public void startBrowser()
     {
         System.setProperty("java.util.logging.config.file", "logging.properties");
 
-        // NOT NEEDED FOR SELENIUM MANAGER
-        //WebDriverManager.chromedriver().timeout(30).setup();
-       // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        ChromeOptions options = new ChromeOptions();
-        LoggingPreferences logs = new LoggingPreferences();
+        // // NOT NEEDED FOR SELENIUM MANAGER
+        // //WebDriverManager.chromedriver().timeout(30).setup();
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+         ChromeOptions options = new ChromeOptions();
+         LoggingPreferences logs = new LoggingPreferences();
 
-        logs.enable(LogType.BROWSER, Level.ALL);
+         logs.enable(LogType.BROWSER, Level.ALL);
         logs.enable(LogType.DRIVER, Level.ALL);
-        options.setCapability("goog:loggingPrefs", logs);
+         options.setCapability("goog:loggingPrefs", logs);
         options.addArguments("--remote-allow-origins=*");
 
-        System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "build/chromedriver.log"); 
+         System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "build/chromedriver.log"); 
 
         driver = new ChromeDriver(options);
 
         driver.manage().window().maximize();
+
+
+
+
+
+
+
+
+
        
     }
 
